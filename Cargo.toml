@@ -1,0 +1,12 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+authors = ["Lucy <lucy@absolucy.moe>"]
+edition = "2021"
+license = "MPL-2.0"
+publish = false
+repository = "https://github.com/Absolucy/meowlouder"
+rust-version = "1.80"
+version = "0.1.0"
