@@ -1,0 +1,18 @@
+[package]
+name = "meowlouder-opus"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+meowlouder-opus-sys = { path = "../opus-sys" }
+thiserror = "1"
+
+[features]
+default = []
+i-can-be-trusted-to-size-my-decoder-buffer-correctly = []
+dred = ["meowlouder-opus-sys/dred"]

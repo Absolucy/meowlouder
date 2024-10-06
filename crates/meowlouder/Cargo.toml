@@ -1,0 +1,17 @@
+[package]
+name = "meowlouder"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+#color-eyre = "0.6"
+anyhow = "1"
+meowlouder-opus = { path = "../opus" }
+cpal = "0.15"
+crossbeam-channel = "0.5"
+rubato = "0.16"

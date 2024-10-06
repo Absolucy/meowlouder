@@ -1,0 +1,17 @@
+[package]
+name = "meowlouder-opus-sys"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[build-dependencies]
+bindgen = "0.70"
+cmake = "0.1"
+doxygen-rs = "0.4"
+
+[features]
+dred = []
