@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MPL-2.0
 use crate::{application::OpusApplication, encode::OpusEncodable, error::OpusErrorCode, map_error};
 use meowlouder_opus_sys::{
-	opus_encoder_ctl, opus_encoder_get_size, opus_encoder_init, OPUS_GET_BANDWIDTH_REQUEST,
-	OPUS_GET_PACKET_LOSS_PERC_REQUEST, OPUS_GET_SAMPLE_RATE_REQUEST, OPUS_RESET_STATE,
-	OPUS_SET_PACKET_LOSS_PERC_REQUEST,
+	OPUS_GET_BANDWIDTH_REQUEST, OPUS_GET_PACKET_LOSS_PERC_REQUEST, OPUS_GET_SAMPLE_RATE_REQUEST,
+	OPUS_RESET_STATE, OPUS_SET_PACKET_LOSS_PERC_REQUEST, opus_encoder_ctl, opus_encoder_get_size,
+	opus_encoder_init,
 };
 
-const MAX_DATA_BYTES: usize = 1275;
+const RECOMMENDED_PACKET_SIZE: usize = 4000;
 
 #[derive(Clone)]
 pub struct OpusEncoder {
@@ -47,7 +47,7 @@ impl OpusEncoder {
 		pcm: &[T],
 		frame_size: usize,
 	) -> Result<Vec<u8>, OpusErrorCode> {
-		let mut data = vec![0; MAX_DATA_BYTES];
+		let mut data = vec![0; RECOMMENDED_PACKET_SIZE];
 		let len = self.encode_into(pcm, frame_size, &mut data)?;
 		data.truncate(len);
 		Ok(data)
