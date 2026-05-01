@@ -12,6 +12,3 @@ publish.workspace = true
 #color-eyre = "0.6"
 anyhow = "1"
 meowlouder-opus = { path = "../opus" }
-cpal = "0.15"
-crossbeam-channel = "0.5"
-rubato = "0.16"
