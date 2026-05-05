@@ -11,4 +11,5 @@ publish.workspace = true
 [dependencies]
 #color-eyre = "0.6"
 anyhow = "1"
+cpal = "0.17"
 meowlouder-opus = { path = "../opus" }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 use meowlouder_opus_sys::{
-	opus_strerror, OPUS_ALLOC_FAIL, OPUS_BAD_ARG, OPUS_BUFFER_TOO_SMALL, OPUS_INTERNAL_ERROR,
-	OPUS_INVALID_PACKET, OPUS_INVALID_STATE, OPUS_UNIMPLEMENTED,
+	OPUS_ALLOC_FAIL, OPUS_BAD_ARG, OPUS_BUFFER_TOO_SMALL, OPUS_INTERNAL_ERROR, OPUS_INVALID_PACKET,
+	OPUS_INVALID_STATE, OPUS_UNIMPLEMENTED, opus_strerror,
 };
 use std::{
 	ffi::CStr,
@@ -62,12 +62,8 @@ macro_rules! map_error {
 			0.. => Ok(result),
 		}
 	}};
-	(&$var:ident, $x:expr) => {{
-		map_error!($x).map(|_| $var)
-	}};
-	((), $x:expr) => {{
-		map_error!($x).map(|_| ())
-	}};
+	(&$var:ident, $x:expr) => {{ map_error!($x).map(|_| $var) }};
+	((), $x:expr) => {{ map_error!($x).map(|_| ()) }};
 	($return_type:ty, $x:expr) => {
 		map_error!($x).map(|value| value as $return_type)
 	};

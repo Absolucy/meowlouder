@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MPL-2.0
 use crate::{error::OpusErrorCode, map_error};
 use meowlouder_opus_sys::{
-	opus_decode, opus_decode_float, opus_decoder_ctl, opus_decoder_get_size, opus_decoder_init,
 	OPUS_GET_BANDWIDTH_REQUEST, OPUS_GET_LAST_PACKET_DURATION_REQUEST, OPUS_GET_PITCH_REQUEST,
-	OPUS_GET_SAMPLE_RATE_REQUEST, OPUS_RESET_STATE,
+	OPUS_GET_SAMPLE_RATE_REQUEST, OPUS_RESET_STATE, opus_decode, opus_decode_float,
+	opus_decoder_ctl, opus_decoder_get_size, opus_decoder_init,
 };
 
 #[derive(Clone)]
